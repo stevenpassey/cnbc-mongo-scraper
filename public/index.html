@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Scraper</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" type="text/css" href="card.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://unpkg.com/axios@0.18.0/dist/axios.min.js">
+</script>
+<script src="index.js">
+</script>
+</head>
+<body>
+<div id="paragraph-title">
+	cnbc-mongo-scraper
+</div>
+<div id="saved-article-cards" class="empty">
+</div>
+<div id="paragraph">
+	<p id="site-placard">
+		<img src="https://www.google.com/s2/favicons?domain=cnbc.com"> 
+		&nbsp; <span id="card-link" onmouseup="newTabLink(event, 'https://www.cnbc.com/2018/09/18/abbvie-shares-fall-after-california-insurance-regulator-sues-company-over-alleged-kickbacks.html')">CNBC ›</span>
+	</p>
+	<p id="title">
+		
+	</p>
+	<div id="full-title">
+		
+	</div>
+	<p id="author">
+		 
+		<span id="date"></span>
+	</p>
+	<div id="up-arrow" onclick="addToSaved()">
+		<svg width="50" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<line x1="25" y1="23" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+		  
+			<line x1="30" y1="15" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+		  
+			<line x1="20" y1="15" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+			<text x="18" y="30" style="font-size: 6px; font-family: 'Segoe UI','Droid Sans','Helvetica Neue'; font-weight: 400;">SAVE</text>
+		</svg>
+	</div>
+	<div id="next-arrow" onclick="advanceArticle(1)">
+		<svg width="50" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<line x1="25" y1="23" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+		  
+			<line x1="30" y1="15" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+		  
+			<line x1="20" y1="15" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+			<text x="18" y="30" style="font-size: 6px; font-family: 'Segoe UI','Droid Sans','Helvetica Neue'; font-weight: 400;">NEXT</text>
+		</svg>
+	</div>
+	<div id="prev-arrow" onclick="advanceArticle(-1)">
+		<svg width="50" height="60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<line x1="25" y1="23" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+		  
+			<line x1="30" y1="15" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+		  
+			<line x1="20" y1="15" 
+				x2="25" y2="10" style="stroke: #7e8488; stroke-width:1" />
+			<text x="18" y="30" style="font-size: 6px; font-family: 'Segoe UI','Droid Sans','Helvetica Neue'; font-weight: 400;">BACK</text>
+		</svg>
+	</div>
+</div>
+<div id="footer">
+	<div id="link-1" class="link external-link" onmouseup="newTabLink(event, 'https://github.com/stevenpassey')">
+		github.com/stevenpassey
+	</div>
+	<div id="link-2" class="link" onmouseup="newTabLink(event, 'https://www.cnbc.com')">
+		Visit CNBC.com
+	</div>
+	<div id="link-3" class="link secondary-external-link" onmouseup="newTabLink(event, 'https://nodejs.org/en/')">
+		Node
+	</div>
+	<div id="link-4" class="link secondary-external-link" onmouseup="newTabLink(event, 'https://expressjs.com/')">
+		Express
+	</div>
+	<div id="link-5" class="link secondary-external-link" onmouseup="newTabLink(event, 'https://www.mongodb.com/')">
+		Mongo
+	</div>
+</div>
+<div id="notes-modal">
+<div id="close-notes-modal" onmouseup="this.parentElement.style.display='none'; document.getElementById('saved-article-cards').style.overflowX = 'scroll';">
+Close
+</div>
+Notes:
+<input id="note-add-input" type="text" maxlength="255">
+<button onClick="clickAddNote()">Add</button>
+<div id="notes-list"><ul id="notes-list-ul">
+</ul>
+
+</div>
+</div>
+</body>
+</html>

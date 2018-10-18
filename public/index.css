@@ -1,0 +1,678 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:500');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body
+{
+	margin: 0;
+	overflow-x: hidden;
+	width: 100vw;
+}
+
+#site-placard
+{
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: .6em;
+	font-weight: 700;
+	color: #7e8488;
+	height: 35px;
+	line-height: 35px;
+}
+
+#site-placard img
+{
+	position: relative;
+	height: 15px;
+	top: 3px;
+}
+
+#up-arrow
+{
+	display: block;
+	position: absolute;
+	right: -1000px;
+	top: 0;
+	width: 50px;
+	height: 60px;
+	transform-origin: top center;
+	transform: scale(2,2);
+	opacity: 0.7;
+	cursor: pointer;
+    clip: rect(0px,35px,40px,0px);
+    overflow: hidden;
+	-webkit-user-select: none;
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+#up-arrow:hover
+{
+	opacity: 1;
+}
+
+#next-arrow
+{
+	display: block;
+	position: absolute;
+	right: -1000px;
+	top: 0;
+	width: 50px;
+	height: 60px;
+	transform-origin: top center;
+	transform: scale(2,2) rotate(90deg);
+	opacity: 0.7;
+	cursor: pointer;
+    clip: rect(0px,35px,40px,0px);
+    overflow: hidden;
+	-webkit-user-select: none;
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+#next-arrow:hover
+{
+	opacity: 1;
+}
+
+#prev-arrow
+{
+	display: block;
+	position: absolute;
+	right: -1000px;
+	top: 0;
+	width: 50px;
+	height: 60px;
+	transform-origin: top center;
+	transform: scale(2,2) rotate(-90deg);
+	opacity: 0.7;
+	cursor: pointer;
+    clip: rect(0px,35px,40px,0px);
+    overflow: hidden;
+	-webkit-user-select: none;
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+#prev-arrow:hover
+{
+	opacity: 1;
+}
+
+.remove-button
+{
+	display: block;
+	position: absolute;
+	right: -21px;
+	top: 21px;
+	width: 50px;
+	height: 60px;
+	transform-origin: top center;
+	transform: scale(2,2) rotate(90deg);
+	opacity: 1;
+	cursor: pointer;
+    clip: rect(0px,35px,40px,0px);
+    overflow: hidden;
+}
+
+.remove-button > svg > line
+{
+	stroke: rgb(180, 180, 180);
+	/*#ef3535*/
+}
+
+.card__show-remove > .remove-button > svg > line
+{
+	stroke: #ef3535;
+}
+
+.card__show-remove > .notes-button > svg > path
+{
+	stroke: #35cfef;
+	fill: #35cfef;
+}
+
+.remove-button:hover
+{
+	opacity: 0.7;
+}
+
+.notes-button
+{
+	display: block;
+	position: absolute;
+	right: 44px;
+	top: 0px;
+	width: 40px;
+	height: 41px;
+	background-color: white;
+	opacity: 1;
+	cursor: pointer;
+    overflow: hidden;
+	z-index: 50;
+}
+
+.notes-button > svg > path
+{
+	stroke: rgb(180, 180, 180);
+	fill: rgb(180, 180, 180);
+}
+
+.notes-button:hover
+{
+	opacity: 0.7;
+}
+
+#title
+{
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: 36px;
+	font-weight: 700;
+	color: #222223;
+	line-height: 1.2em;
+	margin: 4px;
+	cursor: pointer;
+}
+
+#full-title
+{
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: .65em;
+	font-weight: 700;
+	background-color: rgba(36,36,36, 0.9);
+	color: rgb(240,240,240);
+	border-radius: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#title.ellipsis:hover ~ #full-title
+{
+	display: block;
+	width: max-content;
+}
+
+#author
+{
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: .6em;
+	font-weight: 700;
+	color: #222223;
+    margin: 1.6em 0 1em 0;
+    text-transform: uppercase;
+}
+
+#date
+{
+	font-weight: 400;
+	color: #a5a7ae;
+    letter-spacing: .05em;
+	margin-left: .2em;
+    text-transform: uppercase;
+}
+
+#paragraph-title
+{
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: 1.85em;
+	font-weight: 700;
+	color: #222223;
+	margin: 4px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+
+#saved-article-cards.empty:before
+{
+	content: 'No articles saved';
+	display: inline-block;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: 1.65em;
+	/*color: #a5a7ae;*/
+	color: rgba(165,167,174,0.54);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#saved-article-cards
+{
+	width: 100%;
+	height: 264px;
+	border-top: 1px solid rgba(0,0,0,0.2);
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.7);
+	margin-top: 23px;
+	margin-bottom: 8vh;
+	background-color: rgb(240,240,240);
+	padding-left: 5px;
+	white-space: nowrap;
+}
+
+
+#paragraph:before
+{
+	content: ' ';
+	display: block;
+	position: relative;
+	top: -35px;
+	left: 50%;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(90deg, white, rgba(0,0,0,0.4), white);
+	transform: translateX(-50%);
+}
+
+#paragraph
+{
+	font-family: 'Cormorant Garamond';
+	font-size: 22px;
+	background-color: white;
+	color: black;
+	margin: 0 auto;
+	width: 650px;
+	line-height: 1.4285em;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+	padding-left: 20px;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+
+#paragraph:after
+{
+	content: ' ';
+	display: block;
+	position: relative;
+	bottom: -49px;
+	left: 50%;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(90deg, white, rgba(0,0,0,0.4), white);
+	transform: translateX(-50%);
+}
+
+#footer
+{
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	min-height: 200px;
+	background-color: #242424;
+	box-shadow: inset 0px 2px 10px rgba(0,0,0,0.7);
+	transition: height 500ms ease-out;
+}
+
+#footer:after
+{
+	content: ' ';
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #242424;
+	animation: fadeInFooter forwards 250ms 450ms;
+}
+
+@keyframes fadeInFooter
+{
+	0%{ opacity: 1; width: 100%;}
+	99% { opacity: 0; width: 100%;}
+	100% { opacity: 0; width: 0px;}
+}
+
+#link-1
+{
+	position: absolute;
+    color: rgb(202,202,202);
+    font-size: 1.35em;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#link-2
+{
+	position: absolute;
+    color: rgb(202,202,202);
+    font-size: .95em;
+	top: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#link-2:before
+{
+	content: ' ';
+	position: absolute;
+	top: 2px;
+	right: -18px;
+	display: inline-block;
+	width: 22px;
+	height: 26px;
+	background-position: top right;
+    background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%23fff%22 stroke=%22%23111%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E %3Cpath fill=%22%2ddd%22 d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22/%3E %3Cpath fill=%22%23fff%22 d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22/%3E %3C/svg%3E")
+}
+
+#link-2:hover:before
+{
+	background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%23fff%22 stroke=%22%23555%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E %3Cpath fill=%22%23555%22 d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22/%3E %3Cpath fill=%22%23fff%22 d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22/%3E %3C/svg%3E")
+}
+
+#link-3
+{
+	position: absolute;
+    color: rgb(142,142,142);
+    font-size: .95em;
+	top: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#link-4
+{
+	position: absolute;
+    color: rgb(142,142,142);
+    font-size: .95em;
+	top: 130px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#link-5
+{
+	position: absolute;
+    color: rgb(142,142,142);
+    font-size: .95em;
+	top: 160px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.link
+{
+	display: block;
+	width: max-content;
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+    font-weight: 700;
+	cursor: pointer;
+	transition: color 500ms;
+	padding-bottom: 10px;
+}
+
+.link:hover
+{
+	color: white !important;
+}
+
+.link:after
+{
+	display: block;
+	position: absolute;
+	content: ' ';
+	bottom: 9px;
+	left: 0px;
+	height: 2px;
+	background-color: white;
+	width: 100%;
+	animation: linkStartLine forwards 250ms 200ms;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.link:hover:after
+{
+	display: block;
+	position: absolute;
+	content: ' ';
+	bottom: 9px;
+	left: 0px;
+	height: 2px;
+	background-color: white;
+	animation: linkHoverLine forwards 250ms;
+	cursor: pointer;
+}
+
+#card-link
+{
+	cursor: pointer;
+}
+
+#card-link:hover
+{
+	text-decoration: underline;
+}
+
+
+@keyframes linkStartLine
+{
+	from { width: 100%; }
+	to { width: 0px; }
+}
+
+@keyframes linkHoverLine
+{
+	from { width: 0px; }
+	to { width: 100%; }
+}
+
+.external-link:before
+{
+	content: ' ';
+	position: absolute;
+	top: 7px;
+	right: -18px;
+	display: inline-block;
+	width: 22px;
+	height: 26px;
+	padding-bottom: 10px;
+	background-position: top right;
+    background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%23fff%22 stroke=%22%23111%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E %3Cpath fill=%22%2ddd%22 d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22/%3E %3Cpath fill=%22%23fff%22 d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22/%3E %3C/svg%3E")
+}
+
+.external-link:hover:before
+{
+	background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%23fff%22 stroke=%22%23555%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E %3Cpath fill=%22%23555%22 d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22/%3E %3Cpath fill=%22%23fff%22 d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22/%3E %3C/svg%3E")
+}
+
+.secondary-external-link:before
+{
+	content: ' ';
+	position: absolute;
+	top: 2px;
+	right: -18px;
+	display: inline-block;
+	width: 22px;
+	height: 26px;
+	opacity: 0.5;
+	background-position: top right;
+    background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%23fff%22 stroke=%22%23111%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E %3Cpath fill=%22%2ddd%22 d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22/%3E %3Cpath fill=%22%23fff%22 d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22/%3E %3C/svg%3E")
+}
+
+.secondary-external-link:hover:before
+{
+	opacity: 0.65;
+	background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%23fff%22 stroke=%22%23555%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E %3Cpath fill=%22%23555%22 d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22/%3E %3Cpath fill=%22%23fff%22 d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22/%3E %3C/svg%3E")
+}
+
+@media screen and (max-height: 900px)
+{
+	#saved-article-cards
+	{
+		margin-bottom: 8vh;
+	}
+
+	#footer
+	{
+		height: 200px;
+		bottom: -190px;
+	}
+}
+
+@media screen and (max-width: 680px)
+{
+	#saved-article-cards
+	{
+		width: 99%;
+	}
+	#paragraph
+	{
+		width: 85%;
+	}
+}
+
+#notes-modal
+{
+	display: none;
+	position: absolute;
+	z-index: 51;
+	top: 13px;
+	left: 50%;
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: 1.65em;
+	font-weight: 700;
+	color: #222223;
+    background-color: white;
+	height: 202px;
+    width: 309px;
+    line-height: 1.4285em;
+    padding-left: 20px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+	animation: fadeNotesIn 250ms forwards ease-out;
+}
+
+@keyframes fadeNotesIn
+{
+	0%{ opacity: 0;}
+	100% { opacity: 1;}
+}
+
+#close-notes-modal
+{
+	position: absolute;
+    right: 22px;
+    top: 15px;
+    color: rgb(180, 180, 180);
+	cursor: pointer;
+	transition: background-color 75ms ease-out;
+	-webkit-user-select: none;
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+#close-notes-modal:hover
+{
+	color: black;
+	text-decoration: underline;
+	
+}
+
+#notes-modal > input
+{
+	margin-top: 15px;
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: .95em;
+	font-weight: 700;
+	color: #222223;
+	width: 240px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+
+#notes-modal:after
+{
+	content: ' ';
+    background-color: rgb(180, 180, 180);
+    position: absolute;
+    top: 96px;
+    left: 20px;
+    width: 240px;
+    height: 1px;
+	z-index: -5;
+}
+
+#notes-modal > button
+{
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: .95em;
+	font-weight: 700;
+	color: #222223;
+	width: 60px;
+	border: none;
+	outline: none;
+	background-color: white;
+	cursor: pointer;
+	/*border-bottom: 1px solid white;*/
+	transition: background-color 75ms ease-out;
+}
+
+#notes-modal > button:hover
+{
+	/*border-bottom: 1px solid black;*/
+	text-decoration: underline;
+}
+
+#notes-modal > button:active
+{
+	background-color: rgb(180, 180, 180);
+	transform: translateY(1px);
+	padding-top: 1px;
+	text-decoration: underline;
+}
+
+#notes-list
+{
+	width: 98%;
+	font-family: "Segoe UI","Droid Sans","Helvetica Neue";
+	font-size: .95em;
+	font-weight: 700;
+	color: #222223;
+    background-color: white;
+	height: 100px;
+	margin-top: 10px;
+	overflow-y: scroll;
+}
+
+#notes-list ul
+{
+	list-style: none;
+}
+
+#notes-list ul li
+{
+	position: relative;
+}
+
+.note-delete-button
+{
+	position: absolute;
+	top: 0px;
+	left: -31px;
+	color: #ef3535;
+	cursor: pointer;
+}
+
+.note-delete-button:hover
+{
+	opacity: 0.7;
+}
